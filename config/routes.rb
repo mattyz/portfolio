@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :portmanteaus
   get 'pages/home'
   get 'pages/about'
   get 'pages/contact'

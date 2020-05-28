@@ -1,0 +1,2 @@
+class Portmanteau < ApplicationRecord
+end

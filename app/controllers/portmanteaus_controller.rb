@@ -1,0 +1,2 @@
+class PortmanteausController < ApplicationController
+end
