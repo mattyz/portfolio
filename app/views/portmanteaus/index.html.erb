@@ -7,19 +7,21 @@
 <%# this is the relative path, use most of the time %>
 
 <p>
-<%=  new_portmanteau_path %>
+<%#=  new_portmanteau_path %>
 </p>
 
 <%# this is the absolute path, use for emails %>
 
 <p>
-<%=  new_portmanteau_url%>
+<%# =  new_portmanteau_url%>
 </p>
 
 <% @portfolio_items.each do |p| %>
-  <p><%= p.title %></p>
+  <p><%= link_to p.title, portmanteau_path(p) %></p>
   <p><%= p.subtitle %></p>
   <p><%= p.body%></p>
-  <%= image_tag p.thumb_image unless p.thumb_image.nil? %>
-  <%= link_to "Edit Item", edit_portmanteau_path(p.id) %>
+  <p><%= image_tag p.thumb_image unless p.thumb_image.nil? %> </p>
+  <p><%= link_to "Edit Item", edit_portmanteau_path(p) %></p>
+  <hr/> 
+  <%#= link_to "Edit Item", edit_portmanteau_path(p.id) %>
 <%end %>

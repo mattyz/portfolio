@@ -25,6 +25,10 @@ class PortmanteausController < ApplicationController
     # puts @portmanteau.inspect
   end
 
+  def show
+    @portmanteau = Portmanteau.find(params[:id])
+  end
+
   def update
     @portmanteau= Portmanteau.new(params.require(:portmanteau).permit(:title, :subtitle, :body))
     respond_to do |format|
