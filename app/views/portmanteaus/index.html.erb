@@ -22,6 +22,7 @@
   <p><%= p.body%></p>
   <p><%= image_tag p.thumb_image unless p.thumb_image.nil? %> </p>
   <p><%= link_to "Edit Item", edit_portmanteau_path(p) %></p>
+  <p><%= link_to 'Delete Item',portmanteau_path(p) , method: :delete, data: { confirm: 'Are you sure?'} %>
   <hr/> 
   <%#= link_to "Edit Item", edit_portmanteau_path(p.id) %>
 <%end %>

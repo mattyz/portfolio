@@ -29,6 +29,14 @@ class PortmanteausController < ApplicationController
     @portmanteau = Portmanteau.find(params[:id])
   end
 
+  def destroy
+    @portmanteau = Portmanteau.find(params[:id])
+    @portmanteau.destroy
+    respond_to do |format|
+      format.html { redirect_to portmanteaus_url, notice: 'Portfolio was successfully destroyed.' }
+    end
+  end
+
   def update
     @portmanteau= Portmanteau.new(params.require(:portmanteau).permit(:title, :subtitle, :body))
     respond_to do |format|
