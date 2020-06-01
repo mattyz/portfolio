@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :portmanteaus
+  # resources :portmanteaus
+ # problem with resources above is the show action requires portmanteaus/id, which is plural!
+  # ergo, customize it with portmanteau/:id
+  resources :portmanteaus, except: [:show]
+  #as is used for a link_to tag on index
+  get 'portmanteau/:id', to: 'portmanteaus#show', as: 'portmanteau_show'
+  
   # static pages
   # get 'pages/home'
 
