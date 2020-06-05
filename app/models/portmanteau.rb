@@ -7,5 +7,13 @@ class Portmanteau < ApplicationRecord
  
   # preferred way
   # Pormanteau.portolio_activities
-  scope :portfolio_activities, ~> {where(subtitle: 'Activities')}
+  scope :portfolio_activities, lambda {where(subtitle: 'Activities')}
+
+  # callback to set defaults, runs when a new is created
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.main_image ||= "http://placehold.it/600x400" 
+    self.thumb_image ||= "http://placehold.it/350x200"
+  end
 end
