@@ -42,4 +42,8 @@ puts "created 5 skills !!"
   p.save!
  end
 
-puts "created 5 portmanteaus aka porfolios !!"
+ 3.times do |technology|
+   Portmanteau.last.technologies.create!(name: "Technology @{technology}")
+ end
+
+ puts "created 3 techs !"

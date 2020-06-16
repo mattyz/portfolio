@@ -8,6 +8,8 @@ class Skill < ApplicationRecord
   def set_defaults
    # replece below with a concern 
    # self.badge||= "http://placehold.it/200x200" 
-   self.badge||=  Placeholder.image_generator(height:"200", width: "200") end
+   # self.badge||=  Placeholder.image_generator(height:"200", width: "200")
+   self.badge||=  Placeholder.image_generator("200","200")
+  end
 
 end
