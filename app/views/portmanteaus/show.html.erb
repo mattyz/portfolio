@@ -7,6 +7,9 @@
 
 <p><%= @portmanteau.body%> </p>
 
-<a href="portmanteaus/new">Create New Portfolio </a>
+<h2>Technologies Used </h2>
+  <% @portmanteau.technologies.each do |t| %>
+    <p> <%= t.name %> </p>
+  <% end %>
 
 
