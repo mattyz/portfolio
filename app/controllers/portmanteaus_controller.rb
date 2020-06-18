@@ -6,16 +6,19 @@ class PortmanteausController < ApplicationController
   def new
 #   @portfolio = Portmanteau.new
    @portmanteau = Portmanteau.new
-
+   #used for nested attr
+   3.times {@portmanteau.technologies.build }
   end
+  
   def create
     #@portmanteau= Portmanteau.new(portmanteau_params)
-    @portmanteau= Portmanteau.new(params.require(:portmanteau).permit(:title, :subtitle, :body))
+    @portmanteau= Portmanteau.new(params.require( :portmanteau).permit(
+      :title, :subtitle, :body,technologies_attributes: [:name]))
     respond_to do |format|
       if @portmanteau.save
-        format.html { redirect_to portmanteaus_path, notice: 'Portfolio item was successfully created.' }
+        format.html { redirect_to portmanteaus_path, notice: 'Your portfolio is now live' }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'Saving Portmanteau failed!' }
       end
     end
   end
