@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # resources :portmanteaus
  # problem with resources above is the show action requires portmanteaus/id, which is plural!
   # ergo, customize it with portmanteau/:id
