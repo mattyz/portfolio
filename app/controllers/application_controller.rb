@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
-
-  # same as before_action
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-  def configure_permitted_parameters 
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
-  end
+  # missing from Rails gen
+  # protect_from_forgery with: :exception
+   # attempted to move to separate concern but devise fails with
+  # message NoMethodError (undefined method `configure_permitted_parameters' for #<Devise::SessionsController:0x00007f89d0d22d08>
+# Did you mean?  configure_permitted_parameters·)
+  include DeviseWhitelist
 end
