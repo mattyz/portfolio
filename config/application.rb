@@ -23,6 +23,9 @@ module Portfolio
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    #override the defaults in all controllers
+    #whitelist all controllers **DANGER!***
+    # config.action_controller.permit_all_parameters = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
