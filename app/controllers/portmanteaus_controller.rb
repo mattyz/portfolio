@@ -11,9 +11,9 @@ class PortmanteausController < ApplicationController
   end
   
   def create
-    #@portmanteau= Portmanteau.new(portmanteau_params)
-    @portmanteau= Portmanteau.new(params.require( :portmanteau).permit(
-      :title, :subtitle, :body,technologies_attributes: [:name]))
+    @portmanteau= Portmanteau.new(portmanteau_params)
+    # @portmanteau= Portmanteau.new(params.require( :portmanteau).permit(g
+    #  :title, :subtitle, :body,technologies_attributes: [:name]))
     respond_to do |format|
       if @portmanteau.save
         format.html { redirect_to portmanteaus_path, notice: 'Your portfolio is now live' }
@@ -41,13 +41,19 @@ class PortmanteausController < ApplicationController
   end
 
   def update
-    @portmanteau= Portmanteau.new(params.require(:portmanteau).permit(:title, :subtitle, :body))
+    @portmanteau= Portmanteau.find(params[:id])
     respond_to do |format|
-      if @portmanteau.update(params.require(:portmanteau).permit(:title, :subtitle, :body))
+      if @portmanteau.update(portmanteau_params)
         format.html { redirect_to portmanteaus_path, notice: 'Portfolio was successfully updated.' }
       else
         format.html { render :edit }
       end
     end
   end
+
+  private
+    def portmanteau_params
+      params.require(:portmanteau).permit(:title, :subtitle, :body,technologies_attributes: [:name])
+    end
+
 end
