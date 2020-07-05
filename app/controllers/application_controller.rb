@@ -1,15 +1,18 @@
 class ApplicationController < ActionController::Base
   # missing from Rails gen
   # protect_from_forgery with: :exception
-   # attempted to move to separate concern but devise fails with
-  # message NoMethodError (undefined method `configure_permitted_parameters' for #<Devise::SessionsController:0x00007f89d0d22d08>
-# Did you mean?  configure_permitted_parameters·)
   include DeviseWhitelist
   include SetSource
+  include CurrentUserConcern 
 
   # before_action :set_source
 
-
+  # override current_user from devise implementation
+#  def current_user
+#    # create a Null Object user via OpenStruct
+#    super || OpenStruct.new(name: "Guest User", first_name: "Guest", last_name: "User", email: "guest_user@here.com")
+#  end
+#
   # TODO: refactor
   # if params passed in add something to the view
   # add this to the session as source
