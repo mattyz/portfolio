@@ -1,4 +1,6 @@
 class PortmanteausController < ApplicationController
+  layout "portmanteau"
+
   def index
     @portfolio_items= Portmanteau.all
   end
