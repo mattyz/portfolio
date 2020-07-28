@@ -22,8 +22,6 @@
 
     <%= render "shared/nav", location: 'top' %>
 
-    <% if session[:source] %>
-      <p>Thanks for visiting me from <%= session[:source] %>
-    <% end %>
+    <%= source_helper("portmanteau") %>
   </body>
 </html>

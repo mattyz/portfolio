@@ -16,7 +16,15 @@ module ApplicationHelper
         "<br>".html_safe +
         (link_to "Login", new_user_session_path)
     end
+  end
 
+  def sample_helper
+    content_tag('div', "My Content", class: "some-class")
+  end
 
+  def source_helper(layout_name)
+    if session[:source]
+      content_tag(:p, "Thanks for visiting me from #{session[:source]} and you're on the #{layout_name} layout", class: "source-class")
+    end
   end
 end
