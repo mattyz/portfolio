@@ -1,0 +1,9 @@
+  <p><%= link_to portmanteau.title, portmanteau_show_path(p) %></p>
+  <p><%= portmanteau.subtitle %></p>
+  <p><%= portmanteau.body%></p>
+  <p><%= image_tag portmanteau.thumb_image unless portmanteau.thumb_image.nil? %> </p>
+  <p><%= link_to "Edit Item", edit_portmanteau_path(portmanteau) %></p>
+  <p><%= link_to 'Delete Item',portmanteau_path(portmanteau) , method: :delete, data: { confirm: 'Are you sure?'} %>
+  <hr/> 
+  <%#= link_to "Edit Item", edit_portmanteau_path(portmanteau.id) %>
+
