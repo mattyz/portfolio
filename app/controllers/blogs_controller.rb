@@ -18,7 +18,9 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
+    @topic = Topic.last
     @blog = Blog.new
+    @blog.topic = @topic
   end
 
   # GET /blogs/1/edit
