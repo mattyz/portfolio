@@ -1,4 +1,5 @@
 class PortmanteausController < ApplicationController
+  before_action :set_portmanteau, only: [:show, :edit, :update, :destroy]
   layout "portmanteau"
 
   def index
@@ -26,16 +27,13 @@ class PortmanteausController < ApplicationController
   end
 
   def edit
-    @portmanteau = Portmanteau.find(params[:id])
     # puts @portmanteau.inspect
   end
 
   def show
-    @portmanteau = Portmanteau.find(params[:id])
   end
 
   def destroy
-    @portmanteau = Portmanteau.find(params[:id])
     @portmanteau.destroy
     respond_to do |format|
       format.html { redirect_to portmanteaus_url, notice: 'Portfolio was successfully destroyed.' }
@@ -43,7 +41,6 @@ class PortmanteausController < ApplicationController
   end
 
   def update
-    @portmanteau= Portmanteau.find(params[:id])
     respond_to do |format|
       if @portmanteau.update(portmanteau_params)
         format.html { redirect_to portmanteaus_path, notice: 'Portfolio was successfully updated.' }
@@ -54,6 +51,11 @@ class PortmanteausController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_portmanteau
+      @portmanteau = Portmanteau.find(params[:id])
+    end
+
     def portmanteau_params
       params.require(:portmanteau).permit(:title, :subtitle, :body,technologies_attributes: [:name])
     end
