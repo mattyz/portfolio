@@ -3,7 +3,8 @@ class PortmanteausController < ApplicationController
   layout "portmanteau"
 
   def index
-    @portfolio_items= Portmanteau.all
+    # @portfolio_items= Portmanteau.all
+    @portmanteaus = Portmanteau.all
   end
 
   def new
