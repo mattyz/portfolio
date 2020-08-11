@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5.0'
+#custom gem
+gem 'view_tool_mdzllc', git:'https://github.com/mattyz/viewtool'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

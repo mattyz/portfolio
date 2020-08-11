@@ -6,6 +6,22 @@ class ApplicationController < ActionController::Base
   include CurrentUserConcern
   include DefaultPageContent
 
+  # for module
+  before_action :set_copyright
+
+  def set_copyright
+    @copyright = EulogizerViewTool::Renderer.copyright("Portmanteau LLC ","All Rights Reserved")
+  end
+
+#build a gem exercise
+  module EulogizerViewTool
+    class Renderer
+      def self.copyright name, msg
+        # html copyright symbol &copy;
+        "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+      end
+    end
+  end
 
   # before_action :set_source
 

@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/mattyz/viewtool
+  revision: 62cb56660700966f179e4becb10f790c52764eb2
+  specs:
+    view_tool_mdzllc (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -220,6 +226,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
+  view_tool_mdzllc!
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
