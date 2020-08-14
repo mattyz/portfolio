@@ -2,8 +2,8 @@
   <p><%= portmanteau.subtitle %></p>
   <p><%= portmanteau.body%></p>
   <p><%= image_tag portmanteau.thumb_image unless portmanteau.thumb_image.nil? %> </p>
-  <p><%= link_to "Edit Item", edit_portmanteau_path(portmanteau) %></p>
-  <p><%= link_to 'Delete Item',portmanteau_path(portmanteau) , method: :delete, data: { confirm: 'Are you sure?'} %>
+  <p><%= link_to "Edit Item", edit_portmanteau_path(portmanteau) if logged_in?(:site_admin) %></p>
+  <p><%= link_to 'Delete Item',portmanteau_path(portmanteau) , method: :delete, data: { confirm: 'Are you sure?'} if logged_in?(:site_admin) %>
   <hr/> 
   <%#= link_to "Edit Item", edit_portmanteau_path(portmanteau.id) %>
 
