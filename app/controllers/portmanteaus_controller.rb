@@ -1,7 +1,7 @@
 class PortmanteausController < ApplicationController
   before_action :set_portmanteau, only: [:show, :edit, :update, :destroy]
   layout "portmanteau"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all}
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit], site_admin: :all}
 
   def index
     # @portfolio_items= Portmanteau.all
