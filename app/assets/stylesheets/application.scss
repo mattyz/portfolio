@@ -122,3 +122,10 @@ body {
 .register-link {
   text-align: right;
 }
+
+// for all the card elements nested in the login
+.login > .card {
+  width: 22rem;
+  margin: 0 auto;
+  float: none;
+}
