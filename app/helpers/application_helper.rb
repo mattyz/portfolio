@@ -8,7 +8,8 @@ module ApplicationHelper
     "<p>Sample Helper </p>".html_safe
   end
 
-  def login_helper(style)
+  # handle if no style if passed (no layout)
+  def login_helper(style = '')
     if current_user.is_a?(GuestUser)
       (link_to "Register", new_user_registration_path, class: style) +
         "".html_safe +
