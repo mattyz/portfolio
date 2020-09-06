@@ -12,32 +12,35 @@
     <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
 
-  <%= render 'shared/blog_nav' %>
+    <%= render 'shared/blog_nav' %>
 
-<main role="main" class="container">
-  <div class="row">
-    <div class="col-md-8 blog-main">
-
-  <!-- snagged from header -guessing - of bootstrap4/blog.index.html -->
-
-
-    <%= yield %>
-
-  <footer class="blog-footer">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-  <p>
-    <a href="#">Back to top</a>
-  </p>
-</footer>
-    <%#= render "shared/nav", location: "bottom" %>
-    
-    <%#= source_helper("blog") %>
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">The Bootstrap Blog</h1>
+      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
-</main>
   </div>
-  
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <%= yield %>
+        </div>
+    
+    <%= render 'shared/blog_sidebar' %>
+
+
+      </div>
+   </main>
+
+   <footer class="blog-footer">
+     <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+     <p><a href="#">Back to top</a></p>
+   </footer>
+   <%#= render "shared/nav", location: "bottom" %>
+   <%#= source_helper("blog") %>
   </body>
 </html>
