@@ -34,6 +34,9 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'view_tool_mdzllc', git:'https://github.com/mattyz/viewtool'
 #for authorization
 gem 'petergate', '~> 2.0', '>= 2.0.1'
+gem 'font-awesome-rails', '~> 4.7'
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
