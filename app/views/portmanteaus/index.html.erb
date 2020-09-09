@@ -1,19 +1,39 @@
-<h1>Porfolio Items </h1>
+<main role="main">
 
-<a href="portmanteaus/new">Create New Portfolio </a>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <!--<a href="portmanteaus/new">Create New Portfolio </a> -->
 
-<%= link_to "Create New Item", new_portmanteau_path %>
+        <%#= link_to "Create New Item", new_portmanteau_path %>
 
-<%# this is the relative path, use most of the time %>
+        <%# this is the relative path, use most of the time %>
 
-<p>
-<%#=  new_portmanteau_path %>
-</p>
+        <p>
+        <%#=  new_portmanteau_path %>
+        </p>
 
-<%# this is the absolute path, use for emails %>
+        <%# this is the absolute path, use for emails %>
 
-<p>
-<%# =  new_portmanteau_url%>
-</p>
+        <p>
+        <%# =  new_portmanteau_url%>
+        </p>
 
-<%= render partial: 'portmanteau', collection: @portmanteaus %>
+        <%= render partial: 'portmanteau', collection: @portmanteaus %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+    <a href="#">Back to top</a>
+    </p>
+    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+</html>
+
+

@@ -8,7 +8,7 @@ class BlogsController < ApplicationController
   def index
     #@blogs = Blog.all
     @blogs = Blog.page(params[:page]).per(5)
-    @page_title = "My Portmanteau | Blog Section"
+    # @page_title = "My Portmanteau | Blog Section"
   end
 
   # GET /blogs/1
@@ -83,6 +83,7 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:id])
+      # @blog = Blog.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
