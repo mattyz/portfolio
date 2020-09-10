@@ -13,7 +13,7 @@
 
   <body>
     <%= render 'shared/portmanteau_nav' %>
-    <%= render "shared/portmanteau_masthead", location: 'top' %>
+    <%= render "shared/portmanteau_masthead", location: 'top' unless logged_in?(:site_admin) %>
 
     <%= yield %>
     <%= render 'shared/portmanteau_footer' %>
