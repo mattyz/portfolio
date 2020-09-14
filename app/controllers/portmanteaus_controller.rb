@@ -5,7 +5,9 @@ class PortmanteausController < ApplicationController
 
   def index
     # @portfolio_items= Portmanteau.all
-    @portmanteaus = Portmanteau.all
+   #  @portmanteaus = Portmanteau.all
+#     @portmanteaus = Portmanteau.order("position ASC")
+    @portmanteaus = Portmanteau.by_position
     @page_title = "My Portmanteau | Portfolio Section"
 
   end

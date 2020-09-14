@@ -30,4 +30,9 @@ class Portmanteau < ApplicationRecord
 #    self.main_image ||= "http://placehold.it/600x400" 
 #    self.thumb_image ||= "http://placehold.it/350x200"
   end
+
+  # for drag and drop interface
+  def self.by_position
+    order("position ASC")
+  end
 end
