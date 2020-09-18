@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+require("jquery-ui")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -20,3 +22,13 @@ import 'bootstrap'
 //document.addEventListener("turbolinks:load", () => {
 //  $('[data-toggle="tooltip"]').tooltip()
 //})
+//
+$(function(){
+    // Plain jquery
+    $('#fadeMe').fadeOut(5000);
+
+    // jquery-ui
+    const availableCities = ['Baltimore', 'New York'];
+    $('#cityField').autocomplete( { source: availableCities } );
+    $('#calendarField').datepicker( { dateFormat: 'yy-mm-dd' } );
+})
