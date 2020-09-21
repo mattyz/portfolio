@@ -1,7 +1,7 @@
 class PortmanteausController < ApplicationController
   before_action :set_portmanteau, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "portmanteau"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :sort, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
     # @portfolio_items= Portmanteau.all
@@ -10,6 +10,14 @@ class PortmanteausController < ApplicationController
     @portmanteaus = Portmanteau.by_position
     @page_title = "My Portmanteau | Portfolio Section"
 
+  end
+
+  # not implemented on client yet..webpacker issue
+  def sort
+    params[:order].each do |key, value|
+      Portmanteau.find(value[:id]).update(position: value[:position])
+    end
+    render nothing: true
   end
 
   def new
