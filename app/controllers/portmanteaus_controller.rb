@@ -71,7 +71,12 @@ class PortmanteausController < ApplicationController
     end
 
     def portmanteau_params
-      params.require(:portmanteau).permit(:title, :subtitle, :body,technologies_attributes: [:name])
+      params.require(:portmanteau).permit(:title,
+                                          :subtitle,
+                                          :body,
+                                          :main_image,
+                                          :thumb_image,
+                                          technologies_attributes: [:name])
     end
 
 end

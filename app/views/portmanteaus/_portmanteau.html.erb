@@ -1,6 +1,6 @@
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm" data-id ="<%= portmanteau.id %>">
-    <p><%= image_tag portmanteau.thumb_image unless portmanteau.thumb_image.nil? %> </p>
+    <p><%= image_tag portmanteau.thumb_image.url unless portmanteau.thumb_image.nil? %> </p>
     <div class="card-body">
       <span><%= link_to portmanteau.title, portmanteau_show_path(portmanteau.id) %> </span><%= portmanteau.subtitle %>
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
