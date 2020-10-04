@@ -1,26 +1,25 @@
 <main role="main">
-
   <div class="album py-5 bg-light">
     <div class="container">
-      <div class="row">
+      <div class="row <%= "sortable" if logged_in?(:site_admin) %>">
         <!--<a href="portmanteaus/new">Create New Portfolio </a> -->
 
-        <%#= link_to "Create New Item", new_portmanteau_path %>
+      <%#= link_to "Create New Item", new_portmanteau_path %>
 
-        <%# this is the relative path, use most of the time %>
+      <%# this is the relative path, use most of the time %>
 
-        <p>
-        <%#=  new_portmanteau_path %>
-        </p>
+      <p>
+      <%#=  new_portmanteau_path %>
+      </p>
 
-        <%# this is the absolute path, use for emails %>
+      <%# this is the absolute path, use for emails %>
 
-        <p>
-        <%# =  new_portmanteau_url%>
-        </p>
+      <p>
+      <%# =  new_portmanteau_url%>
+      </p>
 
-        <%= render partial: 'portmanteau', collection: @portmanteaus %>
-      </div>
+      <%= render partial: 'portmanteau', collection: @portmanteaus %>
+    </div>
     </div>
   </div>
 </main>
