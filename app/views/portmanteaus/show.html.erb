@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <%= image_tag @portmanteau.main_image.url, width: '30%' %>
+      <p><%= image_tag portfolio_img(@portmanteau.thumb_image.url,'thumb') unless @portmanteau.thumb_image.nil? %> </p>
     </div>
     <div class="col-md-5">
       <h1><%= @portmanteau.title %></h1>
