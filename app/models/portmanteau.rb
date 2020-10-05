@@ -4,7 +4,7 @@ class Portmanteau < ApplicationRecord
   has_many :technologies
   # choose technology to include when creating updating portfolio and
   # add validation to not include the technology if the name is blank
-  accepts_nested_attributes_for :technologies,
+  accepts_nested_attributes_for :technologies, allow_destroy: true,
                                 reject_if: lambda{ |attrs| attrs['name'].blank? }
 
   validates_presence_of :title, :body#, :main_image, :thumb_image

@@ -1,7 +1,8 @@
 class PortmanteausController < ApplicationController
   before_action :set_portmanteau, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "portmanteau"
-  access all: [:show, :index], user: {except: [:destroy, :sort, :new, :create, :update, :edit]}, site_admin: :all
+  # access all: [:show, :index], user: {except: [:destroy, :sort, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index, :update, :new, :edit, :sort], user: {except: [:destroy]}, site_admin: :all
 
   def index
     # @portfolio_items= Portmanteau.all
@@ -24,7 +25,7 @@ class PortmanteausController < ApplicationController
 #   @portfolio = Portmanteau.new
    @portmanteau = Portmanteau.new
    #used for nested attr
-   3.times {@portmanteau.technologies.build }
+#   3.times {@portmanteau.technologies.build }
   end
   
   def create
@@ -76,7 +77,7 @@ class PortmanteausController < ApplicationController
                                           :body,
                                           :main_image,
                                           :thumb_image,
-                                          technologies_attributes: [:name])
+                                          technologies_attributes: [:id,:name, :_destroy])
     end
 
 end
