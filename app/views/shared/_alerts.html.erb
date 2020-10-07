@@ -1,9 +1,9 @@
 <!-- gritter..not working due to jquery integration -->
 
 <% if flash[:alerts] %>
-  <%= js add_gritter(flash[:alert], :title => "Please alert this!") %>
+  <%= js add_gritter(flash[:alert], :title => "Please alert this!", sticky: false) %>
 <% elsif flash[:error] %>
-  <%= js add_gritter(flash[:error], :title => "Please fix error !") %>
+  <%= js add_gritter(flash[:error], :title => "Please fix error !",sticky: false ) %>
 <% else %> 
-  <%= js add_gritter(flash[:notice], :title => "Please notice me!") %>
+  <%= js add_gritter(flash[:notice], :title => "Please notice me!",sticky: false ) %>
 <% end %>

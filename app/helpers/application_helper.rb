@@ -78,4 +78,17 @@ NAV
    "active" if current_page? path
   end
 
+ # does not work with flash error messages, see generator 
+  def alerts
+    alert = ( flash[:alert] || flash[:error] || flash[:notice])
+    if alert
+      alert_generator alert
+      # js add_gritter(alert, title: "Please alert this!", sticky: false)
+    end
+  end
+
+  def alert_generator msg
+    js add_gritter(msg, title: "Matt Zickel Portfolio!", sticky: false)
+  end
+
 end

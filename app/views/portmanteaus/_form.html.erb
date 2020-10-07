@@ -1,4 +1,10 @@
 <%= form_with(model: @portmanteau, local: true) do |form| %>
+  <% if @portmanteau.errors.any? %>
+    <% @portmanteau.errors.full_messages.each do |message| %>
+      <%= alert_generator message %>
+      <%#= js add_gritter(message, title: "Error", sticky: false) %>
+    <% end %>
+  <% end %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
