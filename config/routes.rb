@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   # get 'pages/contact'..orig, replaced by below so user doesn't requre added pages to view content
   get 'contact', to: 'pages#contact'
+  get 'tech-news', to: 'pages#tech_news'
   # your can add any custom url
   get 'about-me', to: 'pages#about'
 

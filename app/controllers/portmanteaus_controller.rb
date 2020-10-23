@@ -65,6 +65,10 @@ class PortmanteausController < ApplicationController
     end
   end
 
+  def tech_news
+   @tweets = SocialTool.twitter_search
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_portmanteau
