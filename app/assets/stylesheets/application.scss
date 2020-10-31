@@ -42,7 +42,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 65em;
 }
 
 
@@ -79,7 +79,7 @@ body {
   border-bottom-color: #fff;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 42em) {
   .masthead-brand {
     float: left;
   }
@@ -161,4 +161,21 @@ background-size: cover;
 
 .app-footer {
   color: white
+}
+
+.tech-news{
+  color: black;
+  margin: 20px;
+}
+
+// seelct all links and change color to green
+
+.tech-news a {
+  color: green;
+}
+
+// add specificallyl to the card under the div tech-news
+// and no other cards
+.tech-news > .card {
+  padding: 30px;
 }
