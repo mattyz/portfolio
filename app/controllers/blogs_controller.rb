@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_blog, only: [:edit, :update, :destroy, :toggle_status]
   layout "blog"
   # access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 #  access all: [:show, :index], user: all: [:new, :create {except: [:destroy,:update, :edit, :toggle_status]}, site_admin: :all
@@ -15,6 +15,12 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    # add includes since related now and better perf..only hit db once for all comments
+    # @blog = Blog.includes:comments).friendly.find(params[:id])
+    @blog = Blog.includes(:comments).find_by_slug(params[:id])
+    # create a new instance
+    @comment = Comment.new
+
     @page_title = @blog.title
     @seo_keywords = @blog.body
   end
@@ -83,12 +89,13 @@ class BlogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.friendly.find(params[:id])
+      # @blog = Blog.friendly.find(params[:id])
+      @blog = Blog.find_by(slug: params[:id])
       # @blog = Blog.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :topic_id, :status)
     end
 end
